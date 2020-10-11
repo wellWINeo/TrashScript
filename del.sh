@@ -34,6 +34,21 @@ function clear_trash_all(){
 	
 }
 
+function help_man(){
+	echo "Simple script for realizing Trash functionality"
+	echo "written in POSIX shell"
+	echo " "
+	echo "Homepage: https://github.com/wellWINeo/TrashScript"
+	echo "License: MIT (2020)"
+	echo " "
+	echo "Usage:"
+	echo "    del <file>  --  remove file to trash folder"
+	echo "    del -n (--now) <file>  -- delete file, without moving it to trash"
+	echo "    del --clear ...  -- clear files in trash with time elapsed"
+	echo "			       since last access"
+	echo "    del --clear-now ...  -- remove all files in trash"
+}
+
 
 function main(){
 	for ARG in $@; do
@@ -55,6 +70,15 @@ function main(){
 				clear_trash_all
 				echo "Succesfull"
 				;;
+			
+			"--help")
+				help_man
+				;;
+
+			"-h")
+				help_man
+				;;
+
 			*)
 				if result=$(mv $ARG $trash 2>&1); then
 					echo "Succesfull"	
