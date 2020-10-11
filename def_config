@@ -1,0 +1,8 @@
+#time to store files int trash
+# in seconds (UNIX time)
+# for example: 1 week
+store_time=604800
+
+# path to trash folder
+# if you wanna use another path, see README
+trash=/tmp/trash/
