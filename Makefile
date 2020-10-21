@@ -11,6 +11,7 @@ install:
 	@mkdir -p $(DESTDIR)$(SYSCONFDIR)/del
 	@cp -pn def_config $(DESTDIR)$(SYSCONFDIR)/del/config
 	@mkdir -p $(DESTDIR)$(TRASHDIR)/trash
+	@chmod 777 $(DESTDIR)$(TRASHDIR)/trash
 
 uninstall:
 	@rm -rf $(DESTDIR)$(PREFIX)/bin/del
