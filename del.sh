@@ -3,8 +3,6 @@
 # Simple script for realizing trash functionality
 # https://github.com/wellWINeo/TrashScript
 
-dir_files=$(ls -A)
-
 function parse_config(){
 	SYSCONFDIR="/etc"
 	source $SYSCONFDIR/del/config
@@ -81,9 +79,9 @@ function main(){
 
 			*)
 				if result=$(mv $ARG $trash 2>&1); then
-					echo "Succesfull"	
+					#echo "Succesfull"	
 				else
-					echo "Error occured by $ARG"
+					echo "Error occured by $ARG" >&2
 				fi
 				;;
 		esac
@@ -93,4 +91,3 @@ function main(){
 parse_config
 
 main $*
-
