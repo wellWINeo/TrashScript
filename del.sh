@@ -64,7 +64,7 @@ function main(){
 			"--clear")
 				clear_trash;;
 			
-			"--clear-all")
+			"--clear-now")
 				clear_trash_all
 				echo "Succesfull"
 				;;
@@ -78,9 +78,7 @@ function main(){
 				;;
 
 			*)
-				if result=$(mv $ARG $trash 2>&1); then
-					#echo "Succesfull"	
-				else
+				if ! result=$(mv $ARG $trash 2>&1); then
 					echo "Error occured by $ARG" >&2
 				fi
 				;;
